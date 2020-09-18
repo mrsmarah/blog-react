@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=News+Cycle:wght@700&display=swap");
+.pFonts {
+  font-family: "News Cycle", sans-serif;
+  color: white;
+}
+
+.login {
+  background-color: #00000087;
+  /* opacity: 22%; */
+  width: 29vw;
+  border-radius: 30px;
+  padding: 3vw;
+  height: 30vw;
+  /* margin-left: 16vw; */
+  margin-top: 9vw;
+  margin: auto;
+}
+aside.form-elegant {
+  /* background-color: brown; */
+  width: 29vw;
+  padding: 3vw;
+  height: 30vw;
+  margin-left: 25vw;
+}
+.flexRight {
+  float: right;
+}
+footer {
+  clear: both;
+}
+button#signInBt {
+  width: 6vw;
+  height: 2vw;
+  margin-left: 17vw;
+  background-color: #00000087;
+  color: #d9d9d9;
+}
+.sign {
+  width: 29vw;
+  margin: auto;
+  position: relative;
+  top: 20px;
+  border-radius: 30px;
+  margin-left: 67%;
+}
+.labelForm {
+  color: #d9d9d9;
+  font-family: "Inconsolata", Consolas, monospace;
+  text-align: center;
+  font-size: 2.3vw;
+}
+.newUser {
+  color: #d9d9d9;
+  font-size: 1.2vw;
+}
+h1#journey {
+  margin-top: -24.5%;
+  font-size: 130%;
+  margin-left: 5%;
+  color: d9d9d9;
+  color: #d9d9d9b0;
+}
+/* ----------------------------------------- */
+.back {
+  background-image: url("./signin.jpg");
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 11%;
+}
+body {
+  background: #1d1f20;
+}
+/* Basic styles */
+h1 {
+  position: relative;
+  float: left;
+  color: #d9d9d9;
+  font-family: "Inconsolata", Consolas, monospace;
+  font-size: 2em;
+  margin-top: -29%;
+  margin-left: 3%;
+}
+h1 span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #00000087;
+  width: 100%;
+  border-left: 0.1em solid transparent;
+  -webkit-animation: typing 3s steps(16) forwards, cursor 1s infinite;
+  animation: typing 3s steps(16) forwards, cursor 1s infinite;
+}
+/* Animation */
+@-webkit-keyframes typing {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+@-webkit-keyframes cursor {
+  50% {
+    border-color: black;
+  }
+}
+@keyframes typing {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+@keyframes cursor {
+  50% {
+    border-color: black;
+  }
+}
+a#goBack {
+  margin-left: 21vw;
+}
+span#goBack {
+  font-size: 1.5vw;
+  margin-top: 4%;
+  margin-left: 19vw;
+  color: #d9d9d9;
+}
+#goBackBtn {
+  color: #d9d9d9;
+  text-decoration: none;
+  font-size: 20px;
+}
+.btn {
+  color: #d9d9d9;
+}
+.btn:hover {
+  color: #d9d9d9;
+  text-decoration: none;
+}
+.newUser a {
+  color: #d9d9d9;
+  text-decoration: none;
+}
+.borderBu {
+  background-color: transparent;
+  border-color: none;
+  border: none;
+  border-bottom: 1px white solid;
+}
+.form-control:focus {
+  color: #495057;
+  background-color: transparent;
+  border-color: #ffffff;
+}
+.backsize {
+  font-size: 20px;
+}
+.formStyle {
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+}
+input[type="password"]::placeholder {
+  color: #d9d9c4 !important;
+}
