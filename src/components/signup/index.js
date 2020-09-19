@@ -13,6 +13,7 @@ const SignUP = (props) => {
     role: '',
   };
 
+  const [redirect, setRedirect] = useState(false);
 
   const handleChange = e => {
     console.log('signup---->', state);
@@ -22,12 +23,16 @@ const SignUP = (props) => {
   const handleSubmit = e => {
     e.preventDefault();
     props.signup(state.username, state.password);
+    setRedirect(true);
+
   };
 
 
   return (
     <>
-      
+      <Show condition={props.loggedIn} >
+        {(redirect === true) ? <Redirect to='/' /> : null}
+      </Show>
       <Show condition={!props.loggedIn}>
         {/* <div className='flexRight'> */}
         <form className='login' onSubmit={handleSubmit}  >

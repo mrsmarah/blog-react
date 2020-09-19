@@ -54,7 +54,7 @@ function Header(props) {
               <span onClick={() =>{
                 props.logout();
               }} >
-                <NavLink className="pFonts" > logout</NavLink>
+                 logout
               </span>
             </Show>
 

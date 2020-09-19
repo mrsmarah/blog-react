@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import * as actions from '../../store/reducers/auth';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
-// import { Redirect } from 'react-router-dom';
 import { NavLink, Link } from 'react-router-dom';
 import Show from '../show';
 import Form from 'react-bootstrap/Form';
@@ -34,15 +32,13 @@ const Login = (props) => {
 
   return (
     <>
-      <div className='back'>
-        <Show condition={props.loggedIn} >
-          {(redirect === true) ? <Redirect to='/' /> : null}
-        </Show>
-        <div className='sign'>
+      <Show condition={props.loggedIn} >
+        {(redirect === true) ? <Redirect to='/' /> : null}
+      </Show>
 
-          <Show condition={props.loggedIn} >
-            <button onClick={props.logout}>Logout</button>
-          </Show>
+      <div className='back'>
+        
+        <div className='sign'>
 
           <Show condition={!props.loggedIn && !signup}>
             <form className='login' onSubmit={handleSubmit}  >
@@ -73,9 +69,9 @@ const Login = (props) => {
             <Link id='goBackBtn ' className="btn pulse backsize" onClick={() => { setSignup(false); }}  > Go Back </Link>
           </Show>
 
-          <Show condition={props.loggedIn} className='clear'>
+          {/* <Show condition={props.loggedIn} className='clear'>
             <button onClick={props.logout}>Logout</button>
-          </Show>
+          </Show> */}
         </div>
       </div>
 
