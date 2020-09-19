@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as actions from '../../store/reducers/auth';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Show from '../show';
 import Form from 'react-bootstrap/Form';
-// import { MDBInput } from 'mdbreact';
-// import FontAwesome from 'react-fontawesome';
-// import './login.css';
 import Signup from '../signup';
 
 const Login = (props) => {
@@ -68,10 +65,6 @@ const Login = (props) => {
             <Signup />
             <Link id='goBackBtn ' className="btn pulse backsize" onClick={() => { setSignup(false); }}  > Go Back </Link>
           </Show>
-
-          {/* <Show condition={props.loggedIn} className='clear'>
-            <button onClick={props.logout}>Logout</button>
-          </Show> */}
         </div>
       </div>
 
@@ -81,19 +74,15 @@ const Login = (props) => {
 
 };
 const mapStateToProps = (state) => {
-  console.log('state login------>', state);
-  console.log('actions.login------>', actions.login);
   return {
     loggedIn: state.auth.loggedIn,
-    // user: state.auth.user,
   };
 };
 
-
 const mapDispatchToProps = (dispatch, getState) => ({
-
   login: (username, password) => dispatch(actions.login(username, password)),
   logout: () => dispatch(actions.logout()),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
 

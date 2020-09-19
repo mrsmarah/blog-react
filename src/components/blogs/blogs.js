@@ -4,9 +4,9 @@ import { getBlogs ,handelBlog } from '../../store/reducers/blogs';
 import { getStoriesBlog } from '../../store/reducers/stories';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import {Carousel} from 'react-bootstrap';
 
 const Blogs = (props) => {
+  
   useEffect(() => {
     props.getBlogs();
   }, []);

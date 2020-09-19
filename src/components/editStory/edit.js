@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import Show from '../show';
-import * as actions from '../../store/reducers/stories';
+import * as actions from '../../store/reducers/admin';
 import Form from 'react-bootstrap/Form';
 
 
-const NewStory = (props) => {
- 
+const EditStory = (props) => {
+
+  let { id } = useParams();
+
   const [story, setStory] = useState({});
 
   const handleChange = e => {
@@ -15,7 +18,7 @@ const NewStory = (props) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    await props.newStory(props.user , props.token, story);
+    await props.editAdmin(id , story , props.token);
   };
 
   return (
@@ -26,7 +29,8 @@ const NewStory = (props) => {
           <Show condition={props.loggedIn}>
 
             <Form className='login formStyle zIndex' onSubmit={handleSubmit} >
-              <label className='labelForm' >ADD STORY</label>
+              <label className='labelForm' >EDIT STORY</label>
+              
               <Form.Control
                 placeholder='Title'
                 name='title'
@@ -58,7 +62,7 @@ const NewStory = (props) => {
                 })}
               </select>
 
-              <button className='hvr-pulse' id='signInBt2' >ADD</button>
+              <button className='hvr-pulse' id='signInBt2' >Update</button>
             </Form>
           </Show>
         </div>
@@ -78,7 +82,7 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = (dispatch, getState) => ({
-  newStory: (username, token, story) => dispatch(actions.newStory(username, token, story)),
+  editAdmin: (id, token, story) => dispatch(actions.editAdmin(id, token, story)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewStory);
+export default connect(mapStateToProps, mapDispatchToProps)(EditStory);

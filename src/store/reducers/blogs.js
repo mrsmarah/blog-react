@@ -1,16 +1,18 @@
 import superagent from 'superagent';
+const api = 'https://api-marah.herokuapp.com/blogs';
 
+// STATE
 const initialState = {
   blogs: [],
   activeBlog: '',  
 };
 
+// REDUCER
 export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
      
   case 'UPDATE ACTIVE BLOG':
-    // console.log('PAYLOAD ACTIVE', payload );
     return { ...state, activeBlog: payload };
     
   case 'GET BLOGS':
@@ -21,14 +23,12 @@ export default (state = initialState, action) => {
   }
 };
 
-const api = 'https://api-marah.herokuapp.com/blogs';
-
+// ACTIONS
 export const getBlogs = function () {
   return (dispatch) => {
     return superagent
       .get(api)
       .then((response) => {
-        // console.log('get api response:', response.body);
         dispatch(blogsAction({ results: response.body }));
       });
   };

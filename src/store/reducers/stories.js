@@ -1,21 +1,21 @@
 import superagent from 'superagent';
 import axios from 'axios';
 
+// STATE
 const initialState = {
   stories : [],
   newStory : {},
 };
 
+// REDUCER
 export default (state = initialState ,action) =>{
   const { type , payload } = action;
   switch(type){
 
   case 'SHOW BLOG STORIES':
-    // console.log( type, payload);
     return { ...state , stories : payload };
 
   case 'NEW STORY':
-    // console.log( type, payload);
     return {...state , newStory : payload || {} };
 
   default:
@@ -23,7 +23,7 @@ export default (state = initialState ,action) =>{
   }
 };
 
-
+// ACTIONS
 export const getStoriesBlog = (blog) => dispatch => {
   let api = `https://api-marah.herokuapp.com/stories/${blog}`;
   return superagent.get(api)
@@ -39,8 +39,8 @@ export const handelStories = (payload) =>{
   };
 };
 
+
 export const newStory = (username,token,story) => dispatch => {
-  console.log('NEW STORY ARGGGGGG',username,token,story);
   let api = `https://api-marah.herokuapp.com/newStory/${username}`;
   const options = {
     mode: 'cors',
@@ -49,7 +49,6 @@ export const newStory = (username,token,story) => dispatch => {
   };
   axios.post(api,story,options)
     .then(data => {
-      console.log('NEW STORY DATAAAAA', data.data);
       dispatch(newStoryAction( data.data ));
     });
 };

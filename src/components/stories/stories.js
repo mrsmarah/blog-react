@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getOneStory } from '../../store/reducers/oneStory';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 
 const Stories = (props) => {
 
@@ -25,7 +23,6 @@ const Stories = (props) => {
       </section>
     </>
   );
-
 };
 
 const mapStateToProps = (state) => {
@@ -37,8 +34,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    getOneStory: (id) => dispatch(getOneStory(id)),
-
+  getOneStory: (id) => dispatch(getOneStory(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Stories);

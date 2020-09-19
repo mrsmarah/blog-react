@@ -2,10 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addComment } from '../../store/reducers/oneStory';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 
-const Stories = (props) => {
+const OneStory = (props) => {
 
   const [comment, setComment] = useState({});
 
@@ -16,7 +15,6 @@ const Stories = (props) => {
   const handleSubmit = async e => {
     e.preventDefault();
     e.target.reset();
-    // console.log('SUBMIT COMMENTTTTT', props.oneStory._id , props.token , comment);
     await props.addComment(props.oneStory._id , props.token , comment);
   };
 
@@ -68,7 +66,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   addComment: ( id, token , comment) => dispatch(addComment( id, token , comment)),
-
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stories);
+export default connect(mapStateToProps, mapDispatchToProps)(OneStory);

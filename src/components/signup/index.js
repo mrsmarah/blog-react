@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import Show from '../show';
 import * as actions from '../../store/reducers/auth';
 import Form from 'react-bootstrap/Form';
-// import './signup.css';
 
 const SignUP = (props) => {
   const state = {
@@ -16,7 +15,6 @@ const SignUP = (props) => {
   const [redirect, setRedirect] = useState(false);
 
   const handleChange = e => {
-    console.log('signup---->', state);
     state[e.target.name] = e.target.value;
   };
 
@@ -34,7 +32,6 @@ const SignUP = (props) => {
         {(redirect === true) ? <Redirect to='/' /> : null}
       </Show>
       <Show condition={!props.loggedIn}>
-        {/* <div className='flexRight'> */}
         <form className='login' onSubmit={handleSubmit}  >
           <label className='labelForm pFonts'>SIGN UP</label>
           <Form.Control
@@ -77,10 +74,8 @@ const SignUP = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('state------>', state);
   return {
     loggedIn: state.auth.loggedIn,
-    // user: state.auth.user,
   };
 };
 
