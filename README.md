@@ -6,7 +6,7 @@
 ### LINKS:
 
 - [heruko-app /API](https://api-marah.herokuapp.com)
-- [Netlify-app]()
+- [Netlify-app](https://marah-blog.netlify.app/)
 
 
 ### APIs
