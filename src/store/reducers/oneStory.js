@@ -12,8 +12,8 @@ export default (state = initialState ,action) =>{
   switch(type){
   
   case 'SELECTED':
-    // console.log( type, payload);
-    return {...state, oneStory : payload};
+    // console.log( "SELECTEEEEEEEEEEEEEEED", payload);
+    return {...state, oneStory : payload };
 
   case 'ADD COMMENT':
     // console.log( type, payload);
@@ -32,22 +32,23 @@ export const getOneStory = (id,token='0')  => dispatch => {
       .set('Content-Type', 'application/json' )
       .set('Authorization',`Bearer ${token}`)
       .then(data => {
-        // (console.log('getRemoteProduct DATA -------->',data ));
+        // (console.log('getOneStory DATA -------->',data ));
         dispatch( getStory(data.body));
       });}
   else{return superagent.get(api)
     .set('Content-Type', 'application/json' )
     .then(data => {
-    //   (console.log('getRemoteProduct DATA -------->',data ));
+    //   (console.log('getOneStory DATA -------->',data ));
       dispatch( getStory(data.body));
     });}
 };
 
 
 export const getStory = (payload) => {
+    // console.log( "SELECTEEEEEEEEEEEEEEED", payload[0].title);
   return {
     type: 'SELECTED',
-    payload: payload,
+    payload: payload[0],
   };
 };
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getOneStory } from '../../store/reducers/oneStory';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Stories = (props) => {
 
+const Stories = (props) => {
 
   return(
     <>
@@ -36,7 +37,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-//   getStoriesBlog: (blog) => dispatch(getStoriesBlog(blog)),
+    getOneStory: (id) => dispatch(getOneStory(id)),
 
 });
 

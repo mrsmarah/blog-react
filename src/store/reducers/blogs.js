@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
   switch (type) {
      
   case 'UPDATE ACTIVE BLOG':
-    console.log('PAYLOAD ACTIVE', payload );
+    // console.log('PAYLOAD ACTIVE', payload );
     return { ...state, activeBlog: payload };
     
   case 'GET BLOGS':

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Blogs from '../blogs/blogs.js';
 import Stories from '../stories/stories.js';
 import OneStory from '../oneStory/oneStory.js';
-// import AddStory from '../addStory/addStory.js';
+import NewStory from '../newStory/newStory.js';
 // import Admin from '../adminPage';
 import Login from '../login';
 // import Auth from '../auth';
@@ -40,8 +40,12 @@ const Main = (props) => {
         <Login />
       </Route>
 
+      <Route exact path="/new">
+        <NewStory />
+      </Route>
+
       {/* <Route exact path="/new">
-        <AddStory />
+        <NewStory mode='edit' />
       </Route> */}
 
       {/* <Route exact path="/admin">
