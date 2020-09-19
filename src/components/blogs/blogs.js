@@ -4,6 +4,8 @@ import { getBlogs ,handelBlog } from '../../store/reducers/blogs';
 import { getStoriesBlog } from '../../store/reducers/stories';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import {Card,ListGroup } from 'react-bootstrap';
+
 
 const Blogs = (props) => {
   
@@ -13,23 +15,22 @@ const Blogs = (props) => {
 
   return(
     <>
-      <section> 
-        <ul>
+      <Card style={{ width: '50rem', marginLeft: '30px' , marginTop: '20px'}}>
+        <ListGroup variant="flush">
           {props.blogs.map((blog , i) => {
             return(
-              <li  key={i} onClick={() =>{
+              <ListGroup.Item key={i} onClick={() =>{
                 props.handelBlog(blog.blogTitle);
                 props.getStoriesBlog(blog.blogTitle);
-              }}>
+              }} >
                 <Link to={`/stories/${blog.blogTitle}`}> {blog.blogTitle}</Link>
-              </li>
+              </ListGroup.Item>
             );
           })}
-        </ul>
-      </section>
+        </ListGroup>
+      </Card>
     </>
   );
-
 };
 
 const mapStateToProps = (state) => {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Show from '../show';
-import Form from 'react-bootstrap/Form';
+import {Form,Button} from 'react-bootstrap';
 import Signup from '../signup';
 
 const Login = (props) => {
@@ -27,6 +27,8 @@ const Login = (props) => {
     setRedirect(true);
   };
 
+
+
   return (
     <>
       <Show condition={props.loggedIn} >
@@ -38,32 +40,38 @@ const Login = (props) => {
         <div className='sign'>
 
           <Show condition={!props.loggedIn && !signup}>
-            <form className='login' onSubmit={handleSubmit}  >
-              <label className='labelForm pFonts'>SIGN IN</label>
-              <Form.Control
-                placeholder="User Name"
-                name="username"
-                id='username'
-                className='pFonts borderBu '
-                type='text'
-                onChange={handleChange}>
-              </Form.Control>
-              <Form.Control
-                placeholder="Password"
-                name="password"
-                id='password'
-                className='pFonts borderBu'
-                type='password'
-                onChange={handleChange}>
-              </Form.Control>
-              <button id='signInBt'>SIGN IN</button>
+
+            <Form style={{ width: '20rem', marginLeft: '30px' , marginTop: '20px'}} onSubmit={handleSubmit}>
+              <Form.Label> SIGN IN</Form.Label>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Control
+                  style={{ marginBottom: '10px'}}
+                  placeholder="User Name"
+                  name="username"
+                  id='username'
+                  className='pFonts borderBu '
+                  type='text'
+                  onChange={handleChange}>
+                </Form.Control>
+                <Form.Control
+                  style={{ marginBottom: '10px'}}
+                  placeholder="Password"
+                  name="password"
+                  id='password'
+                  className='pFonts borderBu'
+                  type='password'
+                  onChange={handleChange}>
+                </Form.Control>
+              </Form.Group>
+              <Button variant="primary" type="submit">SIGN IN</Button>
               <p className='newUser pFonts' >New User ? <Link onClick={() => { setSignup(true); }}  >Register </Link></p>
-            </form>
+            </Form>
+            
           </Show>
 
           <Show condition={!props.loggedIn && signup}>
             <Signup />
-            <Link id='goBackBtn ' className="btn pulse backsize" onClick={() => { setSignup(false); }}  > Go Back </Link>
+            <Link style={{ marginLeft: '20px'}} id='goBackBtn ' className="btn pulse backsize" onClick={() => { setSignup(false); }}  > Go Back </Link>
           </Show>
         </div>
       </div>
@@ -86,3 +94,24 @@ const mapDispatchToProps = (dispatch, getState) => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
 
+// <form className='login' onSubmit={handleSubmit}  >
+//               <label className='labelForm pFonts'>SIGN IN</label>
+//               <Form.Control
+//                 placeholder="User Name"
+//                 name="username"
+//                 id='username'
+//                 className='pFonts borderBu '
+//                 type='text'
+//                 onChange={handleChange}>
+//               </Form.Control>
+//               <Form.Control
+//                 placeholder="Password"
+//                 name="password"
+//                 id='password'
+//                 className='pFonts borderBu'
+//                 type='password'
+//                 onChange={handleChange}>
+//               </Form.Control>
+//               <button id='signInBt'>SIGN IN</button>
+//               <p className='newUser pFonts' >New User ? <Link onClick={() => { setSignup(true); }}  >Register </Link></p>
+//             </form>
