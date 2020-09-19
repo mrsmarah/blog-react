@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addComment } from '../../store/reducers/oneStory';
 import { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
+import {Card ,Form,Button,ListGroup,ListGroupItem} from 'react-bootstrap';
+
 
 const OneStory = (props) => {
 
@@ -18,40 +19,36 @@ const OneStory = (props) => {
     await props.addComment(props.oneStory._id , props.token , comment);
   };
 
+
   return(
     <>
-      <p>username : {props.oneStory.username}</p>
-      <p>blogTitle : {props.oneStory.blogTitle}</p>
-      <p>story title : {props.oneStory.title}</p>
-      <p>story text : {props.oneStory.text}</p>
+      <Card style={{ width: '50rem', marginLeft: '30px' , marginTop: '20px' }}>
+        <Card.Body>
+          <Card.Title>{props.oneStory.title}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">BLOG : {props.oneStory.blogTitle}</Card.Subtitle>
+          <Card.Subtitle className="mb-2 text-muted">BY :{props.oneStory.username}</Card.Subtitle>
+          <Card.Text>{props.oneStory.text}</Card.Text>
+        </Card.Body>
 
-      <div>story comments : 
-        {props.oneStory.comment.map((comment , j) =>{
-          return(
-            <li  key={j} >
-              <p> username : {comment.username}</p>
-              <p> comment : {comment.theComment}</p>
-            </li>
-          );
-        })}
-      </div>
+        <ListGroup className="list-group-flush">
+          {props.oneStory.comment.map((comment , j) =>{
+            return(
+              <ListGroupItem key={j} >{comment.username} : {comment.theComment}</ListGroupItem>
+            );
+          })}
+        </ListGroup>
+      </Card>
 
-      <form className='form-block' onSubmit={handleSubmit} >
-        <div id='commentText' className='col-xs-12'>
-          <div >
-            <TextField
-              label=" Add your content ..."
-              name="theComment"
-              onChange={handleChange}
-              id='comment'
-              className='borderBu'
-            >
-            </TextField>
-          </div>
-        </div>
-        <button id='addComment' className="hoverBtn" >Add</button>
-  
-      </form>
+      <Form style={{ width: '50rem', marginLeft: '30px' , marginTop: '20px'}} onSubmit={handleSubmit}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Control 
+            type="text" 
+            placeholder="Add your comment..."
+            onChange={handleChange}
+            name="theComment"/>
+        </Form.Group>
+        <Button variant="primary" type="submit">Add</Button>
+      </Form>
     </>
   );
 
@@ -69,3 +66,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OneStory);
+

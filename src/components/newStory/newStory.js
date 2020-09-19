@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Show from '../show';
 import * as actions from '../../store/reducers/stories';
-import Form from 'react-bootstrap/Form';
+import {Form,Button} from 'react-bootstrap';
 
 
 const NewStory = (props) => {
@@ -25,9 +25,13 @@ const NewStory = (props) => {
 
           <Show condition={props.loggedIn}>
 
-            <Form className='login formStyle zIndex' onSubmit={handleSubmit} >
-              <label className='labelForm' >ADD STORY</label>
+            <Form 
+              style={{ width: '50rem', marginLeft: '30px' , marginTop: '20px' }}
+              className='login formStyle zIndex' 
+              onSubmit={handleSubmit} >
+              <Form.Label> ADD STORY </Form.Label>
               <Form.Control
+                style={{ marginBottom: '10px'}}
                 placeholder='Title'
                 name='title'
                 type='text'
@@ -35,8 +39,8 @@ const NewStory = (props) => {
                 value={story.title || ''}
                 className='borderBu'
               />
-
               <Form.Control as="textarea" rows="3" 
+                style={{ marginBottom: '10px'}}
                 placeholder='Text' 
                 name="text"
                 onChange={handleChange}
@@ -58,7 +62,7 @@ const NewStory = (props) => {
                 })}
               </select>
 
-              <button className='hvr-pulse' id='signInBt2' >ADD</button>
+              <Button style={{ marginTop: '20px'}} variant="primary" type="submit"> ADD</Button>
             </Form>
           </Show>
         </div>

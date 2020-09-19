@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Show from '../show';
 import * as actions from '../../store/reducers/auth';
-import Form from 'react-bootstrap/Form';
+import {Form,Button} from 'react-bootstrap';
 
 const SignUP = (props) => {
   const state = {
@@ -31,42 +31,46 @@ const SignUP = (props) => {
       <Show condition={props.loggedIn} >
         {(redirect === true) ? <Redirect to='/' /> : null}
       </Show>
+
       <Show condition={!props.loggedIn}>
-        <form className='login' onSubmit={handleSubmit}  >
-          <label className='labelForm pFonts'>SIGN UP</label>
-          <Form.Control
-            placeholder="User Name"
-            name="username"
-            id='username'
-            className='borderBu pFonts'
 
-            onChange={handleChange}>
-          </Form.Control>
-          <Form.Control
-            placeholder="Password"
-            name="password"
-            id='password'
-            onChange={handleChange}
-            className='borderBu pFonts'
+        <Form style={{ width: '20rem', marginLeft: '30px' , marginTop: '20px'}} onSubmit={handleSubmit}>
+          <Form.Label> SIGN UP</Form.Label>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Control
+              style={{ marginBottom: '10px'}}
+              placeholder="User Name"
+              name="username"
+              id='username'
+              className='borderBu pFonts'
+              type='text'
+              onChange={handleChange}>
+            </Form.Control>
+            <Form.Control
+              style={{ marginBottom: '10px'}}
+              placeholder="Password"
+              name="password"
+              id='password'
+              onChange={handleChange}
+              type='password'
+              className='borderBu pFonts'>
+            </Form.Control>
 
-          >
-          </Form.Control>
-
-          {/* <Form.Control
+            {/* <Form.Control
+            style={{ marginBottom: '10px'}}
             placeholder="Role"
             name="role"
+            type='text'
             onChange={handleChange}
-            className='borderBu'
-          >
+            className='borderBu'>
           </Form.Control> */}
 
-          <button id='signInBt'>SING UP</button>
-        </form>
+          </Form.Group>
+          <Button variant="primary" type="submit">SIGN UP</Button>
+          
+        </Form>
 
       </Show>
-
-      <div id='fixFoter'></div>
-
     </>
   );
 

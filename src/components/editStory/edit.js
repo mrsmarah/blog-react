@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Show from '../show';
 import * as actions from '../../store/reducers/admin';
-import Form from 'react-bootstrap/Form';
+import {Form,Button} from 'react-bootstrap';
 
 
 const EditStory = (props) => {
@@ -28,10 +28,13 @@ const EditStory = (props) => {
 
           <Show condition={props.loggedIn}>
 
-            <Form className='login formStyle zIndex' onSubmit={handleSubmit} >
-              <label className='labelForm' >EDIT STORY</label>
-              
+            <Form 
+              style={{ width: '50rem', marginLeft: '30px' , marginTop: '20px' }}
+              className='login formStyle zIndex' 
+              onSubmit={handleSubmit} >
+              <Form.Label> EDIT STORY </Form.Label>
               <Form.Control
+                style={{ marginBottom: '10px'}}
                 placeholder='Title'
                 name='title'
                 type='text'
@@ -39,8 +42,8 @@ const EditStory = (props) => {
                 value={story.title || ''}
                 className='borderBu'
               />
-
               <Form.Control as="textarea" rows="3" 
+                style={{ marginBottom: '10px'}}
                 placeholder='Text' 
                 name="text"
                 onChange={handleChange}
@@ -62,7 +65,7 @@ const EditStory = (props) => {
                 })}
               </select>
 
-              <button className='hvr-pulse' id='signInBt2' >Update</button>
+              <Button style={{ marginTop: '20px'}} variant="primary" type="submit"> Update</Button>
             </Form>
           </Show>
         </div>
